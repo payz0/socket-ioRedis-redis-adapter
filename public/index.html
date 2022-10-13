@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./dist/socket.io.js"></script>
+</head>
+<body>
+    <h1>Latihan socket io redis adapter</h1>
+    <b>Status</b> <span id="status"></span>
+    <script>
+        window.onload = function(){
+        var status = document.getElementById('status');
+        status.innerHTML  = "Not Connected";
+        var socket = io()
+        socket.on('status',(stat)=>{
+            if(stat){
+                status.innerHTML = 'Connected'
+            }
+        })
+    }
+    </script>
+</body>
+</html>
